@@ -1,0 +1,28 @@
+You are a senior AI assistant tasked with helping a software architect choose the most suitable type of database for a new application.
+Apply Chain-of-Thought (CoT) reasoning to solve the following task:
+
+Task:
+
+Analyze the given project requirements step-by-step, and justify your recommendation for the most suitable type of database (e.g., relational, NoSQL, graph, etc.). Your reasoning must be well-structured and clearly linked to each requirement.
+
+Project Requirements:
+
+- The application is a social platform with millions of users
+
+- You need to store user profiles, posts, and connections (friendships/follows) between users
+
+- The system must support high-speed data reads
+
+- the expected workload is 80% read operations and 20% write operations
+
+Scalability is critical as the platform will grow significantly
+
+Instructions, follow this Chain in task resolvement:
+
+1. Start by identifying the key characteristics of the data and access patterns.
+
+2. Evaluate the strengths and limitations of different database types in the context of each requirement.
+
+3. Make a final recommendation and explain why it is the best fit, considering trade-offs if applicable.
+
+4. Present your reasoning in a clear, logical order, showing how each requirement influenced your decision.
