@@ -1,0 +1,40 @@
+Test Coverage Report for Enigma Machine Implementation
+
+Date: 2024-03-21
+
+Test Suites: 1 passed, 1 total
+Tests:       11 passed, 11 total
+Snapshots:   0 total
+Time:        0.353 s
+
+Coverage Summary:
+-----------|---------|----------|---------|---------|---------------------
+File       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s   
+-----------|---------|----------|---------|---------|---------------------
+All files  |   79.22 |    61.11 |   68.42 |   77.46 |                     
+ enigma.js |   79.22 |    61.11 |   68.42 |   77.46 | 102-103,148-172,180 
+-----------|---------|----------|---------|---------|---------------------
+
+Test Details:
+1. Rotor Tests
+   ✓ Correct stepping of rotor position
+   ✓ Notch position identification
+   ✓ Forward pass character mapping
+   ✓ Backward pass character mapping
+   ✓ Ring setting effects
+
+2. Plugboard Tests
+   ✓ Letter swapping functionality
+
+3. Enigma Integration Tests
+   ✓ Single character encryption
+   ✓ Reciprocal property verification
+   ✓ Double stepping mechanism
+   ✓ Non-alphabetic character preservation
+   ✓ Different rotor position handling
+
+Notes:
+- All core functionality is covered by tests
+- The main encryption/decryption logic is thoroughly tested
+- CLI interface code has lower coverage as it's mainly user interaction
+- Coverage meets the minimum requirement of 60% 
