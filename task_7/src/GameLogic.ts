@@ -114,9 +114,10 @@ export class GameLogic {
     return true;
   }
 
-  public processCPUTurn(): void {
+  public processCPUTurn(): { coordinate: Coordinate; isHit: boolean; isSunk: boolean } {
     let guess: Coordinate;
     let isValidGuess = false;
+    let result = { coordinate: '00' as Coordinate, isHit: false, isSunk: false };
 
     while (!isValidGuess) {
       if (this.state.cpuMode === 'target' && this.state.cpuTargetQueue.length > 0) {
@@ -142,8 +143,16 @@ export class GameLogic {
             this.addAdjacentPositions(row, col);
           }
         }
+
+        result = {
+          coordinate: guess,
+          isHit: hitResult.isHit,
+          isSunk: hitResult.isSunk
+        };
       }
     }
+
+    return result;
   }
 
   private processHit(
@@ -164,6 +173,7 @@ export class GameLogic {
         return { isHit: true, isSunk: false };
       }
     }
+    board[row][col] = 'O';
     return { isHit: false, isSunk: false };
   }
 
