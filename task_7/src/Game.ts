@@ -42,7 +42,15 @@ export class Game {
 
       // CPU's turn
       this.ui.displayMessage("\n--- CPU's Turn ---");
-      this.logic.processCPUTurn();
+      const cpuMove = this.logic.processCPUTurn();
+      
+      // Display CPU move result
+      const [row, col] = [cpuMove.coordinate[0], cpuMove.coordinate[1]];
+      this.ui.displayMessage(`CPU fires at ${row},${col}: ${cpuMove.isHit ? 'HIT!' : 'Miss'}`);
+      if (cpuMove.isSunk) {
+        this.ui.displayMessage('CPU sunk one of your ships!');
+      }
+      this.ui.displayMessage(''); // Empty line for better readability
     }
 
     // Game over
