@@ -24,3 +24,44 @@ A robust, type-safe validation library for Python that lets you define schemas a
    ```bash
    python3 -m pip install -r requirements.txt
    ```
+ 
+---
+
+## Usage Examples
+
+### 1. Basic Object Validation
+
+```python
+from validator import Schema
+
+user_schema = Schema.object({
+    "name": Schema.string().min_length(2).max_length(50),
+    "age": Schema.number().min(0).max(150),
+    "email": Schema.string().pattern(r'^[^\s@]+@[^\s@]+\.[^\s@]+$')
+})
+
+data = {
+    "name": "John Doe",
+    "age": 30,
+    "email": "john@example.com"
+}
+
+try:
+    user_schema.validate(data)
+    print("Data is valid!")
+except ValidationError as e:
+    print(f"Validation error: {e}")
+```
+
+### 2. String Validation
+
+```python
+validator = Schema.string()
+validator.validate("test")  # Valid
+
+validator = Schema.string().min_length(2).max_length(5)
+validator.validate("test")  # Valid
+
+validator = Schema.string().pattern(r'^\d{5}$')
+validator.validate("12345")  # Valid
+```
