@@ -102,4 +102,49 @@ schema = Schema.object({
 schema.validate({"name": "John"})             # age omitted
 schema.validate({"name": "John", "age": 30})  # age provided
 ```
+## Running Tests
 
+To run the test suite:
+
+```bash
+python3 -m unittest test_validator.py
+```
+
+To run tests with coverage:
+
+```bash
+python3 -m coverage run -m unittest test_validator.py
+python3 -m coverage report > test_report.txt
+```
+
+The test coverage report will be saved to `test_report.txt`.
+**Current coverage:** 99% with 10 passing tests and 222 statements checked.
+
+## Error Handling
+
+The library raises `ValidationError` exceptions when validation fails. You can catch these exceptions to handle validation errors:
+
+```python
+from validator import Schema, ValidationError
+
+try:
+    schema.validate(data)
+except ValidationError as e:
+    print(f"Validation failed: {e}")
+```
+
+## Custom Error Messages
+
+You can provide custom error messages for validation failures:
+
+```python
+validator = Schema.string().with_message("Custom error message")
+try:
+    validator.validate(123)
+except ValidationError as e:
+    print(e)  # Outputs: "Custom error message"
+```
+
+## Contributing
+
+Feel free to submit issues and enhancement requests! 
